@@ -34,4 +34,18 @@ public class ItemBusinessServiceTest {
 		assertEquals(100, items.get(0).getValue());
 		assertEquals(400, items.get(1).getValue());
 	}
+	@Test
+	public void retrieveAllItems_NoRecords() {
+		when(repository.findAll()).thenReturn(Arrays.asList());
+		List<Item> items = business.retrieveAllItems();
+		assertEquals(0, items.size());
+	}
+	
+	@Test
+	public void retrieveAllItems_ignoreIfPriceIsZero() {
+		when(repository.findAll()).thenReturn(Arrays.asList(new Item(2,"Item2",10,10),
+				new Item(3,"Item3",0,20)));
+		List<Item> items = business.retrieveAllItems();
+		assertEquals(1, items.size());
+	}
 }

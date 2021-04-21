@@ -10,7 +10,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 public class ItemControllerIT {
-	
+	//Old way
 	@Autowired
 	private TestRestTemplate restTemplate;
 		
@@ -22,5 +22,4 @@ public class ItemControllerIT {
 		JSONAssert.assertEquals("[{id:10001},{id:10002},{id:10003}]", 
 				response, false);
 	}
-
 }

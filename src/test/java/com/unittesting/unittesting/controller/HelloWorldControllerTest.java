@@ -14,8 +14,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.unittesting.unittesting.controller.HelloWorldController;
 
-@WebMvcTest(HelloWorldController.class)
-public class HelloWorldControllerTest {
+@WebMvcTest(HelloWorldController.class)//not pure mocking
+public class HelloWorldControllerTest { //not followed 
 	
 	@Autowired
 	private MockMvc mockMvc;
